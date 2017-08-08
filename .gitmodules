@@ -1,0 +1,12 @@
+[submodule "kicad/lib/ESP32-kiCAD-Footprints"]
+	path = kicad/lib/ESP32-kiCAD-Footprints
+	url = https://github.com/adamjvr/ESP32-kiCAD-Footprints.git
+[submodule "kicad/lib/agg-kicad"]
+	path = kicad/lib/agg-kicad
+	url = https://github.com/adamgreig/agg-kicad.git
+[submodule "kicad/lib/kicad-libraries"]
+	path = kicad/lib/kicad-libraries
+	url = https://github.com/Tinkerforge/kicad-libraries.git
+[submodule "kicad/lib/kicad-lib"]
+	path = kicad/lib/kicad-lib
+	url = https://github.com/mcous/kicad-lib.git
