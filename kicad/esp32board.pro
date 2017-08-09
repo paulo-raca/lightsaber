@@ -1,4 +1,4 @@
-update=qua 02 ago 2017 18:19:29 -03
+update=ter 08 ago 2017 18:02:52 -03
 version=1
 last_client=kicad
 [pcbnew]
@@ -22,6 +22,9 @@ BoardOutlineThickness=0.100000000000
 ModuleOutlineThickness=0.150000000000
 [general]
 version=1
+[cvpcb]
+version=1
+NetIExt=net
 [eeschema]
 version=1
 LibDir=
@@ -58,7 +61,5 @@ LibName29=valves
 LibName30=lib/agg-kicad/lib/ic/sensor/mpu-9250
 LibName31=lib/ESP32-kiCAD-Footprints/ESP32-Footprints/ESP32-footprints-Shem-Lib
 LibName32=lib/kicad-libraries/tinkerforge
-LibName33=lib/INA220
-[cvpcb]
-version=1
-NetIExt=net
+LibName33=lib/MAX98357A
+LibName34=lib/INA220
