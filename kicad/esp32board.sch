@@ -31,6 +31,7 @@ LIBS:valves
 LIBS:mpu-9250
 LIBS:ESP32-footprints-Shem-Lib
 LIBS:tinkerforge
+LIBS:CP2102
 LIBS:MAX98357A
 LIBS:INA220
 LIBS:esp32board-cache
@@ -75,35 +76,35 @@ $EndComp
 $Comp
 L BME280 BME1
 U 1 1 595B025E
-P 9000 1350
-F 0 "BME1" H 8750 1650 60  0000 C CNN
-F 1 "BME" H 9000 1050 60  0000 C CNN
-F 2 "kicad-libraries:BME280" H 9000 1350 60  0001 C CNN
-F 3 "" H 9000 1350 60  0000 C CNN
-	1    9000 1350
+P 9750 6050
+F 0 "BME1" H 9500 6350 60  0000 C CNN
+F 1 "BME" H 9750 5750 60  0000 C CNN
+F 2 "kicad-libraries:BME280" H 9750 6050 60  0001 C CNN
+F 3 "" H 9750 6050 60  0000 C CNN
+	1    9750 6050
 	1    0    0    -1  
 $EndComp
-Text GLabel 8650 1400 0    60   Input ~ 0
+Text GLabel 9400 6100 0    60   Input ~ 0
 SDA
-Text GLabel 8650 1300 0    60   Input ~ 0
+Text GLabel 9400 6000 0    60   Input ~ 0
 SCL
-Text GLabel 10100 1500 2    60   Input ~ 0
+Text GLabel 10850 6200 2    60   Input ~ 0
 GND
-Text GLabel 10100 1200 2    60   Input ~ 0
+Text GLabel 10850 5900 2    60   Input ~ 0
 3.3V
-Text GLabel 8650 1500 0    60   Input ~ 0
+Text GLabel 9400 6200 0    60   Input ~ 0
 3.3V
-Text GLabel 8650 1200 0    60   Input ~ 0
+Text GLabel 9400 5900 0    60   Input ~ 0
 GND
 $Comp
 L C C6
 U 1 1 595B06D3
-P 9850 1350
-F 0 "C6" H 9875 1450 50  0000 L CNN
-F 1 ".1uF" H 9875 1250 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603_HandSoldering" H 9888 1200 50  0001 C CNN
-F 3 "" H 9850 1350 50  0000 C CNN
-	1    9850 1350
+P 10600 6050
+F 0 "C6" H 10625 6150 50  0000 L CNN
+F 1 ".1uF" H 10625 5950 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 10638 5900 50  0001 C CNN
+F 3 "" H 10600 6050 50  0000 C CNN
+	1    10600 6050
 	1    0    0    -1  
 $EndComp
 Text GLabel 7600 2750 0    60   Input ~ 0
@@ -155,22 +156,22 @@ Text GLabel 4000 3200 0    60   Input ~ 0
 Text GLabel 2300 4950 2    60   Input ~ 0
 GND
 Text GLabel 2300 4550 2    60   Input ~ 0
-FTDI_RTS
+PROG_RTS
 Text GLabel 2300 4750 2    60   Input ~ 0
-U0_RX
+PROG_RX
 Text GLabel 2300 4650 2    60   Input ~ 0
-U0_TX
+PROG_TX
 Text GLabel 2300 4450 2    60   Input ~ 0
-FTDI_DTR
+PROG_DTR
 Text GLabel 6600 3350 2    60   Input ~ 0
-U0_RX
+PROG_TX
 Text GLabel 6600 3250 2    60   Input ~ 0
-U0_TX
+PROG_RX
 Text GLabel 4750 3300 0    60   Input ~ 0
-FTDI_RTS
+PROG_RTS
 Text GLabel 6600 3150 2    60   Input ~ 0
 SCL
-Text GLabel 6600 3450 2    60   Input ~ 0
+Text GLabel 6600 3050 2    60   Input ~ 0
 SDA
 $Comp
 L CONN_01X10 P1
@@ -294,17 +295,17 @@ U2_RX
 Text GLabel 6600 3950 2    60   Input ~ 0
 U2_TX
 $Comp
-L CONN_01X04 U1
+L CONN_01X04 SERIAL1
 U 1 1 595D349E
 P 3100 4400
-F 0 "U1" H 3100 4650 50  0000 C CNN
-F 1 "SERIAL2" V 3200 4400 50  0000 C CNN
+F 0 "SERIAL1" H 3100 4650 50  0000 C CNN
+F 1 "SERIAL" V 3200 4400 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x04" H 3100 4400 50  0001 C CNN
 F 3 "" H 3100 4400 50  0000 C CNN
 	1    3100 4400
 	-1   0    0    1   
 $EndComp
-Text GLabel 6600 3050 2    60   Input ~ 0
+Text GLabel 6600 3450 2    60   Input ~ 0
 SPI_MOSI
 Text GLabel 6600 3650 2    60   Input ~ 0
 SPI_MISO
@@ -370,10 +371,10 @@ F 3 "" H 1450 2100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Jumper_NO_Small JP_MPU_INT1
+L Jumper_NO_Small INT1
 U 1 1 595E05E7
 P 10400 3200
-F 0 "JP_MPU_INT1" H 10400 3280 50  0000 C CNN
+F 0 "INT1" H 10400 3280 50  0000 C CNN
 F 1 "JP_NO" H 10410 3140 50  0000 C CNN
 F 2 "jumper:SOLDER-JUMPER_1-WAY" H 10400 3200 50  0001 C CNN
 F 3 "" H 10400 3200 50  0000 C CNN
@@ -394,10 +395,10 @@ F 3 "" H 3950 750 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L CONN_01X03 WS2812
+L CONN_01X03 WS1
 U 1 1 595E4921
 P 2100 5800
-F 0 "WS2812" H 2100 6000 50  0000 C CNN
+F 0 "WS1" H 2100 6000 50  0000 C CNN
 F 1 "WS_2812" V 2200 5800 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 2100 5800 50  0001 C CNN
 F 3 "" H 2100 5800 50  0000 C CNN
@@ -408,8 +409,6 @@ Text GLabel 2300 5800 2    60   Input ~ 0
 5V
 Text GLabel 2300 5900 2    60   Input ~ 0
 GND
-Text GLabel 2300 5700 2    60   Input ~ 0
-WS2812_OUT
 $Comp
 L INA220 INA1
 U 1 1 595E5AFE
@@ -524,47 +523,6 @@ NoConn ~ 9750 3350
 NoConn ~ 2300 1050
 Text GLabel 10750 3950 2    60   Input ~ 0
 ADC_1
-$Comp
-L WS2812B_LED LED1
-U 1 1 598138C3
-P 8000 5250
-F 0 "LED1" H 7900 5450 60  0000 C CNN
-F 1 "WS2812B_LED" H 8000 5050 60  0000 C CNN
-F 2 "LEDs:LED_WS2812B-PLCC4" H 8000 5250 60  0001 C CNN
-F 3 "" H 8000 5250 60  0000 C CNN
-	1    8000 5250
-	1    0    0    -1  
-$EndComp
-Text GLabel 7000 4950 0    60   Input ~ 0
-5V
-Text GLabel 7000 5550 0    60   Input ~ 0
-GND
-$Comp
-L WS2812B_LED LED2
-U 1 1 598143D4
-P 8700 5250
-F 0 "LED2" H 8600 5450 60  0000 C CNN
-F 1 "WS2812B_LED" H 8700 5050 60  0000 C CNN
-F 2 "LEDs:LED_WS2812B-PLCC4" H 8700 5250 60  0001 C CNN
-F 3 "" H 8700 5250 60  0000 C CNN
-	1    8700 5250
-	1    0    0    -1  
-$EndComp
-$Comp
-L C C9
-U 1 1 5981D7EE
-P 7000 5200
-F 0 "C9" H 7025 5300 50  0000 L CNN
-F 1 ".1uF" H 7025 5100 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0603_HandSoldering" H 7038 5050 50  0001 C CNN
-F 3 "" H 7000 5200 50  0000 C CNN
-	1    7000 5200
-	-1   0    0    -1  
-$EndComp
-Text GLabel 9050 5250 2    60   Input ~ 0
-WS2812_OUT
-Text GLabel 7650 5250 0    60   Input ~ 0
-WS2812
 Text GLabel 7600 4600 2    60   Input ~ 0
 WS2812
 $Comp
@@ -661,11 +619,11 @@ Vin
 Text GLabel 1400 1200 2    60   Input ~ 0
 3.3V
 $Comp
-L CONN_01X06 FTDI1
+L CONN_01X06 PROG1
 U 1 1 59842268
 P 2100 4700
-F 0 "FTDI1" H 2100 5050 50  0000 C CNN
-F 1 "CONN_FTDI" V 2200 4700 50  0000 C CNN
+F 0 "PROG1" H 2100 5050 50  0000 C CNN
+F 1 "PROG" V 2200 4700 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x06" H 2100 4700 50  0001 C CNN
 F 3 "" H 2100 4700 50  0000 C CNN
 	1    2100 4700
@@ -678,18 +636,18 @@ Vin
 Text GLabel 1050 2100 0    60   Input ~ 0
 Vin
 Wire Wire Line
-	9350 1200 9350 1300
+	10100 5900 10100 6000
 Wire Wire Line
-	9350 1400 9350 1500
+	10100 6100 10100 6200
 Wire Wire Line
 	8350 2350 8350 2550
 Connection ~ 8350 2450
 Wire Wire Line
-	9350 1500 10100 1500
-Connection ~ 9850 1500
+	10100 6200 10850 6200
+Connection ~ 10600 6200
 Wire Wire Line
-	9350 1200 10100 1200
-Connection ~ 9850 1200
+	10100 5900 10850 5900
+Connection ~ 10600 5900
 Connection ~ 7850 2750
 Connection ~ 7850 2450
 Wire Wire Line
@@ -697,7 +655,7 @@ Wire Wire Line
 Wire Wire Line
 	9750 2850 10200 2850
 Wire Wire Line
-	6600 4250 7300 4250
+	6600 4250 7600 4250
 Connection ~ 7100 4250
 Wire Wire Line
 	10500 3200 10750 3200
@@ -737,24 +695,6 @@ Connection ~ 8150 2450
 Wire Wire Line
 	9750 3050 10050 3050
 Wire Wire Line
-	7650 5550 7650 5350
-Connection ~ 7650 5550
-Wire Wire Line
-	8350 5550 8350 5350
-Connection ~ 8350 5550
-Wire Wire Line
-	7650 4950 7650 5150
-Wire Wire Line
-	8350 4950 8350 5150
-Connection ~ 7650 4950
-Connection ~ 8350 4950
-Wire Wire Line
-	7000 5050 7000 4950
-Connection ~ 7000 4950
-Wire Wire Line
-	7000 5350 7000 5550
-Connection ~ 7000 5550
-Wire Wire Line
 	7100 4250 7100 4600
 Wire Wire Line
 	7100 4450 7600 4450
@@ -787,23 +727,8 @@ Wire Wire Line
 Connection ~ 2450 2650
 Wire Wire Line
 	2450 2750 2450 2650
-Wire Wire Line
-	7000 4950 8350 4950
-Wire Wire Line
-	7000 5550 8350 5550
 Text GLabel 7600 4250 2    60   Input ~ 0
-FTDI_DTR
-$Comp
-L R R2
-U 1 1 59819E1E
-P 7450 4250
-F 0 "R2" V 7530 4250 50  0000 C CNN
-F 1 "100K" V 7450 4250 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 7380 4250 50  0001 C CNN
-F 3 "" H 7450 4250 50  0000 C CNN
-	1    7450 4250
-	0    1    1    0   
-$EndComp
+PROG_DTR
 Wire Wire Line
 	10050 3050 10050 3700
 Wire Wire Line
@@ -824,10 +749,10 @@ Wire Wire Line
 Wire Wire Line
 	10250 3450 10250 3950
 $Comp
-L Jumper_NO_Small JP_MPU_FSYNC1
+L Jumper_NO_Small FSYNC1
 U 1 1 598A250E
 P 10400 3950
-F 0 "JP_MPU_FSYNC1" H 10400 4030 50  0000 C CNN
+F 0 "FSYNC1" H 10400 4030 50  0000 C CNN
 F 1 "JP_NO" H 10410 3890 50  0000 C CNN
 F 2 "jumper:SOLDER-JUMPER_1-WAY" H 10400 3950 50  0001 C CNN
 F 3 "" H 10400 3950 50  0000 C CNN
@@ -861,23 +786,23 @@ Wire Wire Line
 Wire Wire Line
 	4100 4000 4100 4500
 $Comp
-L MAX98357A I2S
+L MAX98357A I2S1
 U 1 1 598A3B3F
 P 5150 6700
-F 0 "I2S" H 5150 6600 50  0000 C CNN
+F 0 "I2S1" H 5150 6600 50  0000 C CNN
 F 1 "MAX98357A" H 5150 6800 50  0000 C CNN
-F 2 "MODULE" H 5150 6700 50  0001 C CNN
+F 2 "Housings_DFN_QFN:QFN-16-1EP_3x3mm_Pitch0.5mm" H 5150 6700 50  0001 C CNN
 F 3 "DOCUMENTATION" H 5150 6700 50  0001 C CNN
 	1    5150 6700
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN_01X02 SPK
+L CONN_01X02 SPK1
 U 1 1 598A3DF5
 P 6550 6850
-F 0 "SPK" H 6550 7000 50  0000 C CNN
+F 0 "SPK1" H 6550 7000 50  0000 C CNN
 F 1 "CONN_SPK" V 6650 6850 50  0000 C CNN
-F 2 "" H 6550 6850 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 6550 6850 50  0001 C CNN
 F 3 "" H 6550 6850 50  0000 C CNN
 	1    6550 6850
 	1    0    0    -1  
@@ -885,11 +810,11 @@ $EndComp
 Text GLabel 5150 6000 1    60   Input ~ 0
 5V
 Wire Wire Line
-	5150 6000 5250 6000
-Text GLabel 5050 7400 3    60   Input ~ 0
+	5150 6000 6850 6000
+Text GLabel 4950 7400 3    60   Input ~ 0
 GND
 Wire Wire Line
-	5050 7400 5250 7400
+	4950 7400 6850 7400
 Connection ~ 5150 7400
 $Comp
 L R R4
@@ -913,11 +838,152 @@ Wire Wire Line
 Wire Wire Line
 	3650 6900 3950 6900
 Text GLabel 3650 6500 0    60   Input ~ 0
-ADC_0
+ADC_5
 Wire Wire Line
 	3650 6500 3950 6500
 Text GLabel 3650 6800 0    60   Input ~ 0
-ADC_1
+ADC_3
 Text GLabel 3650 6900 0    60   Input ~ 0
-ADC_2
+ADC_4
+$Comp
+L USB_OTG P3
+U 1 1 598BFB71
+P -3900 5500
+F 0 "P3" H -3575 5375 50  0000 C CNN
+F 1 "USB_OTG" H -3900 5700 50  0000 C CNN
+F 2 "Connectors_USB:USB_Micro-B_Molex_47346-0001" V -3950 5400 50  0001 C CNN
+F 3 "" V -3950 5400 50  0000 C CNN
+	1    -3900 5500
+	0    -1   -1   0   
+$EndComp
+Text GLabel -1950 3900 1    60   Input ~ 0
+PROG_DTR
+Text GLabel -1550 3900 1    60   Input ~ 0
+PROG_RTS
+Text GLabel -1750 3900 1    60   Input ~ 0
+PROG_TX
+Text GLabel -1650 3900 1    60   Input ~ 0
+PROG_RX
+Text GLabel -3200 6100 0    60   Input ~ 0
+3.3V
+Text GLabel -2050 4400 1    60   Input ~ 0
+GND
+Text GLabel -3200 5800 0    60   Input ~ 0
+GND
+Wire Wire Line
+	-2750 6100 -2750 5700
+Wire Wire Line
+	-3600 5500 -2750 5500
+Wire Wire Line
+	-2750 5600 -3600 5600
+Wire Wire Line
+	-1950 6600 -3600 6600
+Wire Wire Line
+	-3600 6600 -3600 5700
+Text GLabel -3600 5300 2    60   Input ~ 0
+GND
+$Comp
+L R R5
+U 1 1 598C1CC7
+P -1950 4050
+F 0 "R5" V -1870 4050 50  0000 C CNN
+F 1 "1K" V -1950 4050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V -2020 4050 50  0001 C CNN
+F 3 "" H -1950 4050 50  0000 C CNN
+	1    -1950 4050
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R6
+U 1 1 598C3402
+P -1750 4050
+F 0 "R6" V -1670 4050 50  0000 C CNN
+F 1 "1K" V -1750 4050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V -1820 4050 50  0001 C CNN
+F 3 "" H -1750 4050 50  0000 C CNN
+	1    -1750 4050
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R7
+U 1 1 598C3AF3
+P -1650 4250
+F 0 "R7" V -1570 4250 50  0000 C CNN
+F 1 "1K" V -1650 4250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V -1720 4250 50  0001 C CNN
+F 3 "" H -1650 4250 50  0000 C CNN
+	1    -1650 4250
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R8
+U 1 1 598C3B90
+P -1550 4050
+F 0 "R8" V -1470 4050 50  0000 C CNN
+F 1 "1K" V -1550 4050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V -1620 4050 50  0001 C CNN
+F 3 "" H -1550 4050 50  0000 C CNN
+	1    -1550 4050
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	-1950 4200 -1950 4400
+Wire Wire Line
+	-1550 4200 -1550 4400
+Wire Wire Line
+	-1750 4200 -1750 4400
+Wire Wire Line
+	-1650 3900 -1650 4100
+$Comp
+L C C13
+U 1 1 598C6F6A
+P -3000 5950
+F 0 "C13" H -2975 6050 50  0000 L CNN
+F 1 ".1uF" H -2975 5850 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H -2962 5800 50  0001 C CNN
+F 3 "" H -3000 5950 50  0000 C CNN
+	1    -3000 5950
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	-3200 5800 -3000 5800
+Wire Wire Line
+	-3000 5800 -3000 5400
+Wire Wire Line
+	-3000 5400 -2750 5400
+Wire Wire Line
+	-3200 6100 -2750 6100
+Connection ~ -2750 5800
+Connection ~ -3000 6100
+Connection ~ 5050 7400
+$Comp
+L CP2102 C9
+U 1 1 598EBFD6
+P -1650 5500
+F 0 "C9" H -1650 5400 50  0000 C CNN
+F 1 "CP2102" H -1650 5600 50  0000 C CNN
+F 2 "Housings_DFN_QFN:QFN-28-1EP_5x5mm_Pitch0.5mm" H -1650 5500 50  0001 C CNN
+F 3 "DOCUMENTATION" H -1650 5500 50  0001 C CNN
+	1    -1650 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C12
+U 1 1 598EDFF6
+P 6850 6850
+F 0 "C12" H 6875 6950 50  0000 L CNN
+F 1 ".1uF" H 6875 6750 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 6888 6700 50  0001 C CNN
+F 3 "" H 6850 6850 50  0000 C CNN
+	1    6850 6850
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6850 7400 6850 7000
+Connection ~ 5250 7400
+Wire Wire Line
+	6850 6000 6850 6700
+Connection ~ 5250 6000
+Text GLabel 2300 5700 2    60   Input ~ 0
+WS2812
 $EndSCHEMATC

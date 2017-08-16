@@ -3,4 +3,5 @@
   (lib (name kicad-libraries)(type KiCad)(uri "$(KIPRJMOD)/lib/kicad-libraries/")(options "")(descr ""))
   (lib (name agg)(type KiCad)(uri "$(KIPRJMOD)/lib/agg-kicad/agg.pretty/")(options "")(descr ""))
   (lib (name jumper)(type KiCad)(uri "$(KIPRJMOD)/lib//kicad-lib/footprints/jumper.pretty/")(options "")(descr ""))
+  (lib (name Connectors_USB)(type KiCad)(uri "$(KIPRJMOD)/lib//Connectors_USB.pretty/")(options "")(descr ""))
 )
