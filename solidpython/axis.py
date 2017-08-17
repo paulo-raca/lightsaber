@@ -1,7 +1,7 @@
 import solid
 
 
-def thing(d=32, h=10, width=16, width_hole=10.5, z=0):
+def thing(d=27.9, h=10, width=16, width_hole=10, z=0):
 	center = solid.cube(size=(width, width, h), center=True) - solid.hole()(solid.cube(size=(width_hole, width_hole, h*2), center=True))
 	axis_base = solid.cube(size=(d, width_hole/2, h), center=True)
 	axis_1 = solid.rotate(a=45)(axis_base)
@@ -15,12 +15,12 @@ def thing(d=32, h=10, width=16, width_hole=10.5, z=0):
 
 basic = base =  thing(h=10)
 
-tip =  thing(h=6, z=0, width=16)
-for x in range(60, 100, 5):
+tip =  thing(h=4, z=0, width=16)
+for x in range(40, 100, 5):
 	x /= 10.0
-	tip += thing(h=0.5, z=x, width=22-x)
+	tip += thing(h=0.5, z=x, width=20.01-x)
 
-tip += thing(h=2, z=10, width=12, d=16)
+tip += thing(h=2, z=10, width=0, d=15.8)
 #light = solid.translate(v=(0,0,10))(thing(h=1, d=16))
 
 with open('tip.scad', 'w') as f:
