@@ -1,11 +1,11 @@
 import solid
 
 
-def thing(d=27.9, h=10, width=16, width_hole=10, z=0):
+def thing(d=27.9, h=10, width=16, width_hole=10.2, z=0, X=45):
 	center = solid.cube(size=(width, width, h), center=True) - solid.hole()(solid.cube(size=(width_hole, width_hole, h*2), center=True))
 	axis_base = solid.cube(size=(d, width_hole/2, h), center=True)
-	axis_1 = solid.rotate(a=45)(axis_base)
-	axis_2 = solid.rotate(a=-45)(axis_base)
+	axis_1 = solid.rotate(a=X)(axis_base)
+	axis_2 = solid.rotate(a=-X)(axis_base)
 
 	outer_cylinder = solid.cylinder(d=d, h=h, center=True, segments=256)
 
@@ -13,7 +13,9 @@ def thing(d=27.9, h=10, width=16, width_hole=10, z=0):
 
 	return solid.translate(v=(0, 0, z + h/2))(ret)
 
-basic = base =  thing(h=10)
+base = thing(h=10)
+
+base2 = thing(X=30, width=13)
 
 tip =  thing(h=4, z=0, width=16)
 for x in range(40, 100, 5):
@@ -21,17 +23,12 @@ for x in range(40, 100, 5):
 	tip += thing(h=0.5, z=x, width=20.01-x)
 
 tip += thing(h=2, z=10, width=0, d=15.8)
-#light = solid.translate(v=(0,0,10))(thing(h=1, d=16))
 
 with open('tip.scad', 'w') as f:
 	f.write(solid.scad_render(tip))
 
+with open('base2.scad', 'w') as f:
+	f.write(solid.scad_render(base2))
+
 with open('base.scad', 'w') as f:
 	f.write(solid.scad_render(base))
-
-ret = solid.translate(v=(-18,0,0))(tip)
-ret += solid.translate(v=(18,18,0))(base)
-ret += solid.translate(v=(18,-18,0))(base)
-#base =  thing(h=10, z=0, width=16)
-
-#print(solid.scad_render(ret))

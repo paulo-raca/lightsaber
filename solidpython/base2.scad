@@ -6,13 +6,13 @@ difference(){
 			union() {
 				union() {
 					difference() {
-						cube(center = true, size = [16, 16, 10]);
+						cube(center = true, size = [13, 13, 10]);
 					}
-					rotate(a = 45) {
+					rotate(a = 30) {
 						cube(center = true, size = [27.9000000000, 5.1000000000, 10]);
 					}
 				}
-				rotate(a = -45) {
+				rotate(a = -30) {
 					cube(center = true, size = [27.9000000000, 5.1000000000, 10]);
 				}
 			}
